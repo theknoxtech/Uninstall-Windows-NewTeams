@@ -11,7 +11,7 @@ if [ -d "/Applications/Microsoft Teams.app" ]; then
 
     if [ ! -d "/Applications/Microsoft Teams.app" ]; then
 
-      echo "SUCCESS: Teams has been uninstall"
+      echo "SUCCESS: Teams has been uninstalled"
     else
       echo "FAILURE: Teams has NOT been uninstalled"
     fi  
