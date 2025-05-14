@@ -1,4 +1,3 @@
-
 <#
 .SYNOPSIS
 
@@ -10,7 +9,7 @@ This script uninstalls New Teams from the system using the Teams Bootstrapper
 Script checks for New Teams and if installed, it will download the Teams Bootstrapper. Script will use the bootrapper to uninstall New Teams
 
 Author: Jon Witherspoon
-Last Modified: 02/26/25
+Last Modified: 5/8/25
 
 
 .PARAMETER Name
@@ -134,9 +133,11 @@ If ((Get-TeamsInstallStatus).Name){
     }
     catch {
 
-        Out-ConsoleLog -Type Failure -Message -Recommendations "Manual intervention required: Review the logs in CWA"
+        Out-ConsoleLog -Type Failure -Recommendations "Manual intervention required"
     }
     Out-ConsoleLog -Type Success
     
-}
+}elseif (!(Get-TeamsInstallStatus).Name) {
 
+    Out-ConsoleLog -Type Failure -Recommendations "Microsoft Teams is not installed on the target computer"
+}
